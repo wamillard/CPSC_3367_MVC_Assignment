@@ -1,14 +1,19 @@
 package com.ualr.simpletasklist.model;
 
-public class TaskList {
-
+public class TaskList
+{
     // TODO 03. Define TaskList's attributes. The class will have just one attribute to store all
     //  the tasks created by the user.
 
     // TIP. We need a data structure able to dynamically grow and shrink. That's why we'll use a HashMap.
     // where keys will be integer values and the mapped values will be a task object
 
+
+
     // TODO 04. Define the class constructor and the corresponding getters and setters.
+
+
+
 
     // TODO 06.03. Define a new method called "add" that, given a task description, will create a
     //  new task and add it to the task list.

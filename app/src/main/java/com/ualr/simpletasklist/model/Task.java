@@ -1,10 +1,42 @@
 package com.ualr.simpletasklist.model;
 
-public class Task {
+import android.widget.EditText;
 
-    // TODO 01. Define two attributes for the Task class: one to store the task description and a second one that
-    //  indicates whether the task is done or not
+public class Task
+{
+    private EditText taskDescription;
+    private Boolean taskCompleted;
 
-    // TODO 02. Define the class constructor and the corresponding getters and setters.
+    public Task(EditText taskDescription)
+    {
+        this.taskDescription = taskDescription;
+        this.taskCompleted=false;
+    }
+
+    public Task(EditText taskDescription, Boolean taskCompleted)
+    {
+        this.taskDescription = taskDescription;
+        this.taskCompleted = taskCompleted;
+    }
+    public EditText getTaskDescription()
+    {
+        return taskDescription;
+    }
+
+    public void setTaskDescription(EditText taskDescription)
+    {
+        this.taskDescription = taskDescription;
+    }
+
+    public Boolean getTaskCompleted()
+    {
+        return taskCompleted;
+    }
+
+    public void setTaskCompleted(Boolean taskCompleted)
+    {
+        this.taskCompleted = taskCompleted;
+    }
+
 
 }
