@@ -3,8 +3,11 @@ package com.ualr.simpletasklist;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 
 import com.ualr.simpletasklist.databinding.ActivityMainBinding;
+import com.ualr.simpletasklist.model.Task;
+import com.ualr.simpletasklist.model.TaskList;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -13,14 +16,24 @@ public class MainActivity extends AppCompatActivity {
 
     // TODO 05. Add a TaskList member to the MainActivity. Initialize the new member.
 
+    private TaskList myList= new TaskList();
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+    }
         //TODO 06.02 Bind the onAddBtnClicked method to the add button, so the onAddBtnClicked is
         // triggered whenever the user clicks on that button
+
+    public void onAddBtnClicked()
+        {
+
+
+        }
 
         //TODO 07.02 Bind the onDeleteBtnClicked method to the delete button, so that method is
         // triggered whenever the user clicks on that button

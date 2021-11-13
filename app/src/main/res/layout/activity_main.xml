@@ -24,11 +24,11 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextTaskList" />
 
     <EditText
         android:backgroundTint="@color/colorAccent"
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/editTextTaskList"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -43,9 +43,9 @@
         android:src="@drawable/ic_baseline_add_circle_24"
         android:layout_width="32dp"
         android:layout_height="32dp"
-        app:layout_constraintBottom_toBottomOf="@+id/editTextTextPersonName"
+        app:layout_constraintBottom_toBottomOf="@+id/editTextTaskList"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/editTextTextPersonName" />
+        app:layout_constraintTop_toTopOf="@+id/editTextTaskList" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -94,6 +94,7 @@
             android:id="@+id/clearBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="onAddBtnClicked"
             app:layout_constraintBottom_toBottomOf="@+id/editTextTaskId"
             app:layout_constraintEnd_toEndOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>

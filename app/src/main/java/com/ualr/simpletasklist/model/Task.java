@@ -7,25 +7,25 @@ public class Task
     private EditText taskDescription;
     private Boolean taskCompleted;
 
-    public Task(EditText taskDescription)
+    public Task(EditText newtaskDescription)
     {
-        this.taskDescription = taskDescription;
+        this.taskDescription = newtaskDescription;
         this.taskCompleted=false;
     }
 
-    public Task(EditText taskDescription, Boolean taskCompleted)
+    public Task(EditText newtaskDescription, Boolean newtaskCompleted)
     {
-        this.taskDescription = taskDescription;
-        this.taskCompleted = taskCompleted;
+        this.taskDescription = newtaskDescription;
+        this.taskCompleted = newtaskCompleted;
     }
     public EditText getTaskDescription()
     {
         return taskDescription;
     }
 
-    public void setTaskDescription(EditText taskDescription)
+    public void setTaskDescription(EditText newtaskDescription)
     {
-        this.taskDescription = taskDescription;
+        this.taskDescription = newtaskDescription;
     }
 
     public Boolean getTaskCompleted()
@@ -33,9 +33,9 @@ public class Task
         return taskCompleted;
     }
 
-    public void setTaskCompleted(Boolean taskCompleted)
+    public void setTaskCompleted()
     {
-        this.taskCompleted = taskCompleted;
+        this.taskCompleted = true;
     }
 
 
