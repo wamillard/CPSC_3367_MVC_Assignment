@@ -4,33 +4,33 @@ import android.widget.EditText;
 
 public class Task
 {
-    private EditText taskDescription;
+    private String taskDescription;
     private Boolean taskCompleted;
 
-    public Task(EditText newtaskDescription)
+    public Task(String newtaskDescription)
     {
         this.taskDescription = newtaskDescription;
         this.taskCompleted=false;
     }
 
-    public Task(EditText newtaskDescription, Boolean newtaskCompleted)
+    public Task(String newtaskDescription, Boolean newtaskCompleted)
     {
         this.taskDescription = newtaskDescription;
         this.taskCompleted = newtaskCompleted;
     }
-    public EditText getTaskDescription()
+    public String getTaskDescription()
     {
-        return taskDescription;
+        return this.taskDescription;
     }
 
-    public void setTaskDescription(EditText newtaskDescription)
+    public void setTaskDescription(String newtaskDescription)
     {
         this.taskDescription = newtaskDescription;
     }
 
     public Boolean getTaskCompleted()
     {
-        return taskCompleted;
+        return this.taskCompleted;
     }
 
     public void setTaskCompleted()

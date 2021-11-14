@@ -1,7 +1,8 @@
 package com.ualr.simpletasklist.model;
 
+import android.widget.EditText;
+
 import java.util.HashMap;
-import java.util.Map;
 
 public class TaskList
 {
@@ -11,38 +12,40 @@ public class TaskList
     // TIP. We need a data structure able to dynamically grow and shrink. That's why we'll use a HashMap.
     // where keys will be integer values and the mapped values will be a task object
 
-    private HashMap<Integer, Task> loggedTasks;
+    private HashMap<Integer, Task> tasks;
 
 
     // TODO 04. Define the class constructor and the corresponding getters and setters.
 
     public TaskList()
     {
-        HashMap loggedTasks = new HashMap<>();
+        this.tasks = new HashMap<>();
     }
 
-    public HashMap getTaskList()
+    public Integer getNextKey()
     {
-        return loggedTasks;
+        return this.tasks.size()+1;
     }
 
-    public Task getTaskList(Integer key)
+    public String getTask(Integer key)
     {
-        return loggedTasks.get(key);
+        try
+        {
+            return this.tasks.get(key).getTaskDescription();
+        } catch (NullPointerException e)
+        {
+            return "";
+        }
+
     }
 
-    public void setTaskList(Task newTask)
-    {
-
-
-    }
-
-// TODO 06.03. Define a new method called "add" that, given a task description, will create a
+    // TODO 06.03. Define a new method called "add" that, given a task description, will create a
     //  new task and add it to the task list.
 
-    public void addTask(Task newTask)
+    public void addTask(Integer newID, String newTaskDescription)
     {
-        this.loggedTasks.put(loggedTasks.size()+1,newTask);
+        this.tasks.put(newID, new Task(newTaskDescription));
+
     }
 
     // TODO 06.04. Define a new "toString" method that provides a formatted string with all the tasks in the task list.
@@ -53,23 +56,24 @@ public class TaskList
     {
         String fullList= new String();
 
-        if (loggedTasks.size()==0)
+        if (tasks.isEmpty())
         {
-            fullList.concat("No tasks");
+            fullList= "No tasks";
         } else
         {
-            for (Integer i = 1; i <= loggedTasks.size(); i++)
+            for (Integer i=1; i<= tasks.size(); i++)
             {
-                fullList.concat(i.toString() + ". " + loggedTasks.get(i).getTaskDescription());
+                fullList=fullList.concat(i.toString()).concat(". ").concat(this.tasks.get(i).getTaskDescription());
 
-                if (loggedTasks.get(i).getTaskCompleted()==true)
+                if (this.tasks.get(i).getTaskCompleted())
                 {
-                    fullList.concat("- Done\n");
-                } else
-                {
-                    fullList.concat("\n");
+                    fullList=fullList.concat("-Done");
                 }
+
+                fullList=fullList.concat("\n");
+
             }
+
         }
 
         return fullList;
@@ -80,7 +84,12 @@ public class TaskList
 
     public void deleteTask(Integer key)
     {
-        loggedTasks.remove(key);
+        for (Integer i = key; i<=this.tasks.size(); i++)
+        {
+            this.tasks.put(i,this.tasks.get(i));
+        }
+
+        this.tasks.remove(this.tasks.size());
 
         return;
 
@@ -91,7 +100,7 @@ public class TaskList
 
     public void markDone(Integer key)
     {
-        loggedTasks.get(key).setTaskCompleted();
+        tasks.get(key).setTaskCompleted();
 
     }
 
