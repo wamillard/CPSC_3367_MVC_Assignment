@@ -56,8 +56,6 @@ public class MainActivity extends AppCompatActivity
         });
     }
 
-
-
         // TODO 06. Create a new functionality to add a new task using the description provided
         //  through the text field on the top of the screen by tapping the "+" on the right
 
@@ -72,6 +70,15 @@ public class MainActivity extends AppCompatActivity
         // TODO 06.06. Use TaskList class' toString method to get a string with the formatted task list
         //  and display it on screen in the TextView with the id "textView"
 
+    public void updateList()
+    {
+        String myTasks=this.myList.toString();
+
+        this.mbinding.textViewTaskList.setText(myTasks);
+
+        return;
+    }
+
     public void onAddBtnClicked()
     {
         if (!this.mbinding.editTextNewTask.getText().toString().isEmpty())
@@ -81,25 +88,34 @@ public class MainActivity extends AppCompatActivity
 
             this.myList.addTask(newKey, newTask);
 
-            String myTasks=this.myList.allTasks();
-
-            this.mbinding.textViewTaskList.setText(myTasks);
+            updateList();
         }
 
         return;
-
    }
 
     public void onDeleteBtnClicked()
     {
+        Integer deleteKey =Integer.parseInt(this.mbinding.editTextTaskId.getText().toString());
 
+        if (!this.mbinding.editTextTaskId.getText().toString().isEmpty() && deleteKey <= this.myList.getSize())
+        {
 
+            myList.deleteTask(deleteKey);
+
+            updateList();
+        }
+
+        return;
     }
 
     public void onClearBtnClicked()
     {
+        this.myList.markDone(Integer.parseInt(this.mbinding.editTextTaskId.getText().toString()));
 
+        updateList();
 
+        return;
     }
 
 

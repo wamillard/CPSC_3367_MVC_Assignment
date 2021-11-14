@@ -1,9 +1,9 @@
-com/ualr/simpletasklist/model/Task.java
- com.ualr.simpletasklist.model.Task
-com/ualr/simpletasklist/BuildConfig.java
- com.ualr.simpletasklist.BuildConfig
 com/ualr/simpletasklist/databinding/ActivityMainBinding.java
  com.ualr.simpletasklist.databinding.ActivityMainBinding
+com/ualr/simpletasklist/BuildConfig.java
+ com.ualr.simpletasklist.BuildConfig
+com/ualr/simpletasklist/model/Task.java
+ com.ualr.simpletasklist.model.Task
 com/ualr/simpletasklist/MainActivity.java
  com.ualr.simpletasklist.MainActivity
  com.ualr.simpletasklist.MainActivity$1

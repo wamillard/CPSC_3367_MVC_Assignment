@@ -64,15 +64,15 @@
         tools:layout_editor_absoluteX="16dp">
 
         <EditText
-            android:backgroundTint="@color/colorPrimary"
-            android:textColor="@android:color/white"
             android:id="@+id/editTextTaskId"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
             android:layout_marginRight="8dp"
+            android:backgroundTint="@color/colorPrimary"
+            android:ems="10"
             android:hint="@string/insert_task_id"
+            android:inputType="number"
+            android:textColor="@android:color/white"
             app:layout_constraintEnd_toStartOf="@+id/deleteBtn"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

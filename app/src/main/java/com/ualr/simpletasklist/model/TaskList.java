@@ -27,6 +27,11 @@ public class TaskList
         return this.tasks.size()+1;
     }
 
+    public void setKey(Integer newKey)
+    {
+        this.tasks.put(newKey-1,this.tasks.get(newKey));
+    }
+
     public String getTask(Integer key)
     {
         try
@@ -42,6 +47,11 @@ public class TaskList
     // TODO 06.03. Define a new method called "add" that, given a task description, will create a
     //  new task and add it to the task list.
 
+    public Integer getSize()
+    {
+        return this.tasks.size();
+    }
+
     public void addTask(Integer newID, String newTaskDescription)
     {
         this.tasks.put(newID, new Task(newTaskDescription));
@@ -52,7 +62,8 @@ public class TaskList
     // Format: 1 line per task. Each line should start with the id number of the task, then a dash, and the task description right after that.
     // If the task is marked as done, "Done" should be included at the end of the line
 
-    public String allTasks()
+    @Override
+    public String toString()
     {
         String fullList= new String();
 
@@ -67,7 +78,7 @@ public class TaskList
 
                 if (this.tasks.get(i).getTaskCompleted())
                 {
-                    fullList=fullList.concat("-Done");
+                    fullList=fullList.concat(" -Done");
                 }
 
                 fullList=fullList.concat("\n");
@@ -84,15 +95,20 @@ public class TaskList
 
     public void deleteTask(Integer key)
     {
-        for (Integer i = key; i<=this.tasks.size(); i++)
+        Integer currSize=this.tasks.size();
+
+        this.tasks.remove(key);
+
+        if (key<currSize)
         {
-            this.tasks.put(i,this.tasks.get(i));
+            for (Integer i=1; key+i<=currSize;i++)
+            {
+                setKey(i+key);
+            }
+            this.tasks.remove(this.tasks.size());
         }
 
-        this.tasks.remove(this.tasks.size());
-
         return;
-
     }
 
     // TODO 08.03. Define a new method called "markDone" that, given a task id, will mark the
@@ -100,7 +116,7 @@ public class TaskList
 
     public void markDone(Integer key)
     {
-        tasks.get(key).setTaskCompleted();
+        this.tasks.get(key).setTaskCompleted();
 
     }
 

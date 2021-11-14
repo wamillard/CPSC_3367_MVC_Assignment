@@ -18,6 +18,7 @@ public class Task
         this.taskDescription = newtaskDescription;
         this.taskCompleted = newtaskCompleted;
     }
+
     public String getTaskDescription()
     {
         return this.taskDescription;
