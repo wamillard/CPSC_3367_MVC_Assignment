@@ -58,6 +58,11 @@ public class TaskList
 
     }
 
+    public void addTask(Integer newID, String newTaskDescription, Boolean newStatus)
+    {
+        this.tasks.put(newID, new Task(newTaskDescription, newStatus));
+    }
+
     // TODO 06.04. Define a new "toString" method that provides a formatted string with all the tasks in the task list.
     // Format: 1 line per task. Each line should start with the id number of the task, then a dash, and the task description right after that.
     // If the task is marked as done, "Done" should be included at the end of the line

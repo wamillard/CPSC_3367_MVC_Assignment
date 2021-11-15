@@ -14,12 +14,11 @@ import com.ualr.simpletasklist.model.TaskList;
 public class MainActivity extends AppCompatActivity
 {
     private ActivityMainBinding mbinding;
-    private static final String TAG = MainActivity.class.getSimpleName();
+//    private static final String TAG = MainActivity.class.getSimpleName();
 
     // TODO 05. Add a TaskList member to the MainActivity. Initialize the new member.
 
     private TaskList myList;
-
 
 
     @Override
@@ -30,12 +29,13 @@ public class MainActivity extends AppCompatActivity
         setContentView(mbinding.getRoot());
         myList= new TaskList();
 
-        this.myList.addTask(1,"task");
+        //basic intro Data-  This just makes an easier start, with data already populating the taskList
+        this.myList.addTask(1,"task",true);
         this.myList.addTask(2,"task2");
         this.myList.addTask(3,"task3");
         this.myList.addTask(4,"task4");
         this.myList.addTask(5,"task5");
-        this.myList.addTask(6,"task6");
+        this.myList.addTask(6,"task6",true);
         this.myList.addTask(7,"task7");
         this.myList.addTask(8,"task8");
         this.myList.addTask(9,"task9");
