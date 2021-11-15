@@ -71,7 +71,6 @@
             android:backgroundTint="@color/colorPrimary"
             android:ems="10"
             android:hint="@string/insert_task_id"
-            android:inputType="number"
             android:textColor="@android:color/white"
             app:layout_constraintEnd_toStartOf="@+id/deleteBtn"
             app:layout_constraintStart_toStartOf="parent"

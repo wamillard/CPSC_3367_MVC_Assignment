@@ -20,6 +20,8 @@ public class MainActivity extends AppCompatActivity
 
     private TaskList myList;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -27,6 +29,19 @@ public class MainActivity extends AppCompatActivity
         mbinding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(mbinding.getRoot());
         myList= new TaskList();
+
+        this.myList.addTask(1,"task");
+        this.myList.addTask(2,"task2");
+        this.myList.addTask(3,"task3");
+        this.myList.addTask(4,"task4");
+        this.myList.addTask(5,"task5");
+        this.myList.addTask(6,"task6");
+        this.myList.addTask(7,"task7");
+        this.myList.addTask(8,"task8");
+        this.myList.addTask(9,"task9");
+        this.myList.addTask(10,"task10");
+
+        updateList();
 
         this.mbinding.addBtn.setOnClickListener(new View.OnClickListener()
         {
@@ -42,7 +57,13 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                onClearBtnClicked();
+                String toComplete=mbinding.editTextTaskId.getText().toString();
+
+                if (toComplete.length()>0)
+                {
+                    onClearBtnClicked(toComplete);
+                }
+                return;
             }
         });
 
@@ -51,7 +72,13 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                onDeleteBtnClicked();
+                String toDelete=mbinding.editTextTaskId.getText().toString();
+
+                if (toDelete.length()>0)
+                {
+                    onDeleteBtnClicked(toDelete);
+                }
+                return;
             }
         });
     }
@@ -94,24 +121,27 @@ public class MainActivity extends AppCompatActivity
         return;
    }
 
-    public void onDeleteBtnClicked()
+    public void onDeleteBtnClicked(String toDelete)
     {
-        Integer deleteKey =Integer.parseInt(this.mbinding.editTextTaskId.getText().toString());
+        Integer deleteKey=Integer.parseInt(toDelete);
 
-        if (!this.mbinding.editTextTaskId.getText().toString().isEmpty() && deleteKey <= this.myList.getSize())
+        if (this.mbinding.editTextTaskId.length()==0 || deleteKey > this.myList.getSize())
         {
-
-            myList.deleteTask(deleteKey);
-
-            updateList();
+            return;
         }
+
+        myList.deleteTask(deleteKey);
+
+        updateList();
 
         return;
     }
 
-    public void onClearBtnClicked()
+    public void onClearBtnClicked(String toComplete)
     {
-        this.myList.markDone(Integer.parseInt(this.mbinding.editTextTaskId.getText().toString()));
+        Integer completeKey=Integer.parseInt(toComplete);
+
+        this.myList.markDone(completeKey);
 
         updateList();
 
